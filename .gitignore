@@ -1,0 +1,15 @@
+# Large Model Weights (Exceed GitHub 100MB file limit)
+Models/*.gguf
+Models/*.bin
+*.gguf
+*.bin
+
+# Precompiled engine binaries (Downloaded automatically via setup.bat)
+Engine/
+*.zip
+
+# Temporary and OS files
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
