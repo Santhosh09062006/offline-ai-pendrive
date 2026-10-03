@@ -59,10 +59,12 @@ echo Loading: !SELECTED_MODEL!
 echo Server running at: http://127.0.0.1:8080
 echo -------------------------------------------------------
 echo Close this terminal window to stop the AI and unload RAM.
+echo Loading model from USB into RAM (takes ~20-30 seconds)...
+echo The browser will open automatically once loading is complete!
 echo.
 
-:: Open default browser after 2 seconds
-start "" cmd /c "timeout /t 2 /nobreak >nul & start http://127.0.0.1:8080"
+:: Automatically open browser as soon as server finishes loading
+start "" cmd /c "for /l %%i in (1,1,90) do (curl.exe -s http://127.0.0.1:8080/props >nul && (start http://127.0.0.1:8080 & exit) || timeout /t 1 >nul)"
 
 :: Start the llama server using relative paths
 cd /d "%ENGINE_DIR%"
