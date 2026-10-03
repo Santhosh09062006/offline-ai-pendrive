@@ -26,9 +26,12 @@ echo [1/3] Creating directory structure...
 if not exist "%ENGINE_DIR%" mkdir "%ENGINE_DIR%"
 if not exist "%MODELS_DIR%" mkdir "%MODELS_DIR%"
 
-:: Copy template.jinja to Engine/llama
+:: Copy template.jinja and ui-config.json to Engine/llama
 if exist "%ROOT_DIR%template.jinja" (
     copy /y "%ROOT_DIR%template.jinja" "%ENGINE_DIR%\template.jinja" >nul
+)
+if exist "%ROOT_DIR%ui-config.json" (
+    copy /y "%ROOT_DIR%ui-config.json" "%ENGINE_DIR%\ui-config.json" >nul
 )
 
 :: Download and extract llama.cpp if not present

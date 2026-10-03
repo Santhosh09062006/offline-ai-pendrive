@@ -66,6 +66,6 @@ start "" cmd /c "timeout /t 2 /nobreak >nul & start http://127.0.0.1:8080"
 
 :: Start the llama server using relative paths
 cd /d "%ENGINE_DIR%"
-llama-server.exe -m "%MODELS_DIR%\!SELECTED_MODEL!" -c 8192 -np 1 --chat-template-file "template.jinja" --port 8080 --host 127.0.0.1
+llama-server.exe -m "%MODELS_DIR%\!SELECTED_MODEL!" -c 8192 -np 1 --chat-template-file "template.jinja" --ui-config-file "ui-config.json" --port 8080 --host 127.0.0.1
 
 pause
